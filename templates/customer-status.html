@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<title>Customer Status</title>
+<head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='createcustomerstyle.css') }}">
+        <style>
+                table {
+                  border-collapse: collapse;
+                  width: 100%;
+                }
+                
+                thead, td {
+                  text-align: left;
+                  padding: 8px;
+                }
+                
+                tr:nth-child(even){background-color: #f2f2f2}
+                
+                thead {
+                  background-color: #17a2b8;
+                  color: white;
+                }
+                </style>
+</head>
+<body>
+        <div class="navbar">
+                <a href="#home">Home</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Customer Management
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="/create-customer">Create Customer</a>
+                        <a href="/delete-search-customer">Delete Customer</a>
+                        <a href="/update-search-customer">Update Customer</a>
+                      </div>
+                </div>
+
+                <div class="dropdown">
+                  <button class="dropbtn">Account Management
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-content">
+                    <a href="/create-account">Create Account</a>
+                    <a href="/search-account">Delete Account</a>
+
+                  </div>
+                </div>
+
+                <div class="dropdown">
+                  <button class="dropbtn">Status Details
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-content">
+                    <a href="/customer-status">View Customers Status List</a>
+                    <a href="/account-status">View Accounts Status List</a>
+                  </div>
+                </div>
+
+                <a href="#logout">Logout</a>
+
+              </div>
+
+<div id="main-part">
+<h1 style="text-align: center; padding-top: 20px">Customer Status</h1>
+<div id="frm">
+    <div id="frm_in">
+            <table>  
+                    <thead>  
+                        <td>Customer ID</td>  
+                        <td>Customer SSN ID</td>  
+                        <td>Status</td>  
+                        <td>Message</td> 
+                        <td>Last Updated</td>  
+                        <td>Operations</td>
+                        <td>View Profile</td>  
+                  
+                
+                    </thead>  
+                      
+                    {% for row in rows %}  
+                      
+                        <tr>  
+                            <td>{{row["ws_cust_id"]}}</td> 
+                            <td>{{row["ws_ssn"]}}</td>  
+                            <td>{{row["ws_cust_status"]}}</td>  
+                            <td>{{row["ws_msg"]}}</td> 
+                            <td>{{row["ws_last_update"]}}</td>
+                            <td> <a href="">Refresh</a> </td>  
+                            <td> <a href="">View Details</a> </td> 
+                
+                        </tr>  
+                      
+                    {% endfor %}  
+                </table>  
+</div>
+</div>
+</div>
+<!-- Bootstrap jQuery, Popper.js, and our own JavaScript plugins-->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+
+
+</html>

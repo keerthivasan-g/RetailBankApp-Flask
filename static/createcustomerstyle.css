@@ -1,0 +1,133 @@
+#b {
+    margin: 0;
+    padding: 0;
+    /*background-color: #17a2b8;*/
+    background-color: #EAEAEA;
+    height: 100vh;
+  }
+  #register .container #register-row #register-column #register-box {
+    margin-top: 120px;
+    max-width: 600px;
+    /*height: 450px;
+    border: 1px solid #9C9C9C;*/
+    /*background-color: #EAEAEA;*/
+  }
+  #register .container #register-row #register-column #register-box #register-form {
+    padding: 30px;
+  }
+  #register .container #register-row #register-column #register-box #register-form #register-link {
+    margin-top: -75px;
+  }
+  /* Navbar container */
+.navbar {
+
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+input[type=text], input[type=number], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit], input[type=reset] {
+  width: 30%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+#frm {
+  border-radius: 5px;
+  padding-top: 20px;
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-bottom: 20px;
+}
+
+#frm_in {
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  padding: 30px;
+}
+
+#main-part{
+    background-color: #17a2b8;
+    width: 100%;
+}

@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+	<title>Login Page</title>
+	<!-- CSS only Bootstrap-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+	<!-- JS, Popper.js, and jQuery Bootstap-->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	
+	<!-- css file in static folder -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='loginstyle.css') }}">
+	
+	<!-- CSS only PureCSS-->
+	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+
+</head>
+<body class="container">
+
+<div id="login">
+	<div class="container">
+		<div id="login-row" class="row justify-content-center align-items-center">
+			<div id="login-column" class="col-md-6">
+				<div id="login-box" class="col-md-12">
+					<form name="loginForm" id="login-form" class="form" action="/checkuser" method="POST" onsubmit="return validate()">
+						<h3 class="text-center text-info">Login</h3>
+						<div class="form-group">
+							<label for="username" class="text-info">Username:</label><br>
+							<input type="text" name="username" id="username" class="form-control" >
+						</div>
+						<div class="form-group">
+							<label for="password" class="text-info">Password:</label><br>
+							<input type="password" name="password" id="password" class="form-control" >
+						</div>
+						<div class="form-group">
+							<input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script> 
+		function validate()                                    
+		{ 
+			var username = document.forms["loginForm"]["username"];                 
+			var password = document.forms["loginForm"]["password"];  
+
+			if (username.value == "")                                  
+			{ 
+				window.alert("Please enter your Username."); 
+				username.focus(); 
+				return false; 
+			} 
+			if(username.value.length < 8) 
+				{
+					window.alert("The user ID can be alphabetic or alphanumeric and should have a minimum of 8 characters"); 
+					username.focus();
+					return false;
+				}	
+			 
+			if (password.value == "")                        
+			{ 
+				window.alert("Please enter your password"); 
+				password.focus(); 
+				return false; 
+			}
+           
+			if(password.value.match( 
+                    /[A-Z]/g) && password.value.match( 
+                    /[0-9]/g) && password.value.match( 
+                    /[^a-zA-Z\d]/g) && password.value.length >= 10) 
+					{
+						return true;
+					}		
+            else 
+			{
+                window.alert("Password should contain 10 characters including one special character, one upper case, one numeric."); 
+				password.focus(); 
+				return false; 
+			}
+			return true; 
+		}</script> 
+</body>
+</html>

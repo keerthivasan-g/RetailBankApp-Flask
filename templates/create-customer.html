@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<title> Create Customer</title>
+<head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='createcustomerstyle.css') }}">
+</head>
+<body>
+        <div class="navbar">
+                <a href="#home">Home</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Customer Management 
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                      <a href="/create-customer">Create Customer</a>
+                      <a href="/delete-search-customer">Delete Customer</a>
+                      <a href="/update-search-customer">Update Customer</a>
+                    </div>
+                </div> 
+                
+                <div class="dropdown">
+                  <button class="dropbtn">Account Management 
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-content">
+                      <a href="/create-account">Create Account</a>
+                      <a href="/search-account">Delete Account</a>
+                    
+                  </div>
+                </div> 
+
+                <div class="dropdown">
+                    <button class="dropbtn">Status Details
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                      <a href="/customer-status">View Customers Status List</a>
+                      <a href="/account-status">View Accounts Status List</a>
+                    </div>
+                  </div>
+
+                <a href="/logout">Logout</a>
+                
+              </div>      
+              
+<div id="main-part">
+    {% if msg == 'exists' %}
+    <h3 style="text-align: center; padding-top: 20px; color: rgba(255, 0, 0, 0.589)">Customer SSN Id Already Exist</h3>
+    {% endif %}
+
+    {% if msg == 'success' %}
+    <h3 style="text-align: center; padding-top: 20px; color: rgba(255, 0, 0, 0.589)">Customer Created Success</h3>
+    {% endif %}
+
+<h1 style="text-align: center; padding-top: 20px">Create Customer</h1>
+<div id="frm">
+    <div id="frm_in">
+  <form action="/create-customer" onsubmit="return validate()" method="POST" name="CreateCustomerForm">
+    <label for="ws_ssn">Customer SSN id:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="number" id="ws_ssn" name="ws_ssn">
+
+    <label for="ws_name">Customer Name:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="text" id="ws_name" name="ws_name">
+
+    <label for="ws_age">Age:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="number" name="ws_age" id="ws_age"><br>
+
+    <label for="ws_adrs_1">Address Line 1:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="text" name="ws_adrs_1" id="ws_adrs_1">
+    
+    <label for="ws_adrs_2">Address Line 2:</label>
+    <input type="text" name="ws_adrs_2" id="ws_adrs_2">
+
+    <label for="ws_state">State:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="text" name="ws_state" id="ws_state">
+    
+    <label for="ws_city">City:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="text" name="ws_city" id="ws_city">
+  <div>
+    <input type="submit" value="Submit"><span>
+    <input style="float: right" type="reset" value="Reset">
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Bootstrap jQuery, Popper.js, and our own JavaScript plugins-->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script> 
+		function validate()                                    
+		{ 
+			var ws_ssn = document.forms["CreateCustomerForm"]["ws_ssn"];                 
+			var ws_name = document.forms["CreateCustomerForm"]["ws_name"];  
+            var ws_age = document.forms["CreateCustomerForm"]["ws_age"];
+            var ws_adrs_1 = document.forms["CreateCustomerForm"]["ws_adrs_1"];
+            var ws_adrs_2 = document.forms["CreateCustomerForm"]["ws_adrs_2"];
+            var ws_state = document.forms["CreateCustomerForm"]["ws_state"];
+            var ws_city = document.forms["CreateCustomerForm"]["ws_city"];
+			if (ws_ssn.value == "")                                  
+			{ 
+				window.alert("Please enter Customer's SSN Id"); 
+				ws_ssn.focus(); 
+				return false; 
+			} 
+      if(ws_ssn.value.length < 9) 
+				{
+					window.alert("The Customer's SSN ID should have a minimum of 9 digits"); 
+					ws_ssn.focus();
+					return false;
+				}	
+        
+            if (ws_name.value == "")                                  
+			{ 
+				window.alert("Please enter Customer's Name"); 
+				ws_name.focus(); 
+				return false; 
+			} if (ws_age.value == "")                                  
+			{ 
+				window.alert("Please enter Customer's Age"); 
+				ws_age.focus(); 
+				return false; 
+			}
+      if(ws_age.value.length > 3) 
+				{
+					window.alert("The Customer's age should have a maximum of 3 digits"); 
+					ws_age.focus();
+					return false;
+				}	
+        if(ws_age.value < 1) 
+				{
+					window.alert("The Customer's age can't be negative or 0"); 
+					ws_age.focus();
+					return false;
+				}	
+       if (ws_adrs_1.value == "")                                  
+			{ 
+				window.alert("Please enter Customer's address"); 
+				ws_adrs_1.focus(); 
+				return false; 
+			} if (ws_state.value == "")                                  
+			{ 
+				window.alert("Please enter Customer's State"); 
+				ws_state.focus(); 
+				return false; 
+			} if (ws_city.value == "")                                  
+			{ 
+				window.alert("Please enter Customer's City"); 
+				ws_city.focus(); 
+				return false; 
+			} 
+			
+			return true; 
+		}
+      </script>
+</body>
+
+
+</html>

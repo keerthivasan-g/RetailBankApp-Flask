@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<title> Delete Customer</title>
+<head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='createcustomerstyle.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Customer Management 
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="/create-customer">Create Customer</a>
+              <a href="/delete-search-customer">Delete Customer</a>
+              <a href="/update-search-customer">Update Customer</a>
+            </div>
+        </div> 
+        
+        <div class="dropdown">
+          <button class="dropbtn">Account Management 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+              <a href="/create-account">Create Account</a>
+              <a href="/search-account">Delete Account</a>
+            
+          </div>
+        </div> 
+
+        <div class="dropdown">
+            <button class="dropbtn">Status Details
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="/customer-status">View Customers Status List</a>
+              <a href="/account-status">View Accounts Status List</a>
+            </div>
+          </div>
+
+        <a href="/logout">Logout</a>
+        
+      </div> 
+
+<div id="main-part">
+    {% if msg == 'success' %}
+    <h3 style="text-align: center; padding-top: 20px; color: rgba(255, 0, 0, 0.589)">Customer Deleted Success</h3>
+    {% endif %}
+<h1 style="text-align: center; padding-top: 20px">Delete Customer</h1>
+<div id="frm">
+    <div id="frm_in">
+  <form action="/delete-customer" onsubmit="return validate()" method="POST" name="CreateCustomerForm">
+    <label>Customer SSN Id:<span style="color: rgba(255, 0, 0, 0.589)"></span></label>
+    <input type="text" id="ws_ssn_check" name="ws_ssn_1" disabled value=
+                                                  {% if ws_ssn!= '' %}
+                                               {{ws_ssn}}
+                                                  {% endif %}>
+    <input type="hidden" id="ws_ssn" name="ws_ssn" value=
+                                                  {% if ws_ssn != '' %}
+                                               {{ws_ssn}}
+                                                  {% endif %}>                                            
+    <br>
+
+    <label>Customer Id:<span style="color: rgba(255, 0, 0, 0.589)"></span></label>
+    <input type="text" id="ws_cust_id" name="ws_cust_id" disabled value= {% if ws_cust_id != '' %}
+                                                                        {{ws_cust_id}}
+                                                                          {% endif %}>
+    <br>
+
+    <label>Customer Name:<span style="color: rgba(255, 0, 0, 0.589)"></span></label>
+    <input type="text" id="ws_name" name="ws_name" disabled value= {% if ws_name != '' %}
+                                                                      {{ws_name}}
+                                                                      {% endif %}>
+    <br>
+
+    <label>Address:<span style="color: rgba(255, 0, 0, 0.589)"></span></label>
+    <input type="text" id="ws_adrs" name="ws_adrs" disabled value= {% if ws_adrs != '' %}
+                                                                      {{ws_adrs}}
+                                                                        {% endif %}>
+    <br>
+
+
+    <label>Age:<span style="color: rgba(255, 0, 0, 0.589)"></span></label>
+    <input type="text" id="ws_age" name="ws_age" disabled value= {% if ws_age != '' %}
+                                                                      {{ws_age}}
+                                                                        {% endif %}>
+    <br>
+
+  <div>
+    <input type="submit" value="Delete"><span>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Bootstrap jQuery, Popper.js, and our own JavaScript plugins-->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+</body>
+
+
+</html>
